@@ -1,0 +1,13 @@
+{
+  "n_snippets": 500,
+  "n_annotators": 2,
+  "cohens_kappa": 0.83,
+  "agreement_level": "substantial",
+  "llm_artifact_smells_identified": 4,
+  "per_smell_agreement": {
+    "DocstringHallucination": 0.87,
+    "BoilerplatePadding": 0.81,
+    "RedundantTypeComment": 0.91,
+    "ConfidentFallback": 0.78
+  }
+}

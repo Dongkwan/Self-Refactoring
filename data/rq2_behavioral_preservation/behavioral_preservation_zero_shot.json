@@ -1,0 +1,37 @@
+{
+  "description": "Zero-Shot BPR (focused on original-pass snippets)",
+  "models": {
+    "CodeLlama-13B": {
+      "n_total": 457,
+      "n_original_pass": 64,
+      "n_preserved": 62,
+      "n_broken": 2,
+      "n_fixed": 0,
+      "behavioral_preservation_rate": 96.9
+    },
+    "DeepSeekCoder-6.7B": {
+      "n_total": 316,
+      "n_original_pass": 58,
+      "n_preserved": 42,
+      "n_broken": 16,
+      "n_fixed": 0,
+      "behavioral_preservation_rate": 72.4
+    },
+    "StarCoder2-15B": {
+      "n_total": 14,
+      "n_original_pass": 3,
+      "n_preserved": 3,
+      "n_broken": 0,
+      "n_fixed": 0,
+      "behavioral_preservation_rate": 100.0
+    },
+    "Qwen2.5-Coder-14B": {
+      "n_total": 617,
+      "n_original_pass": 200,
+      "n_preserved": 172,
+      "n_broken": 28,
+      "n_fixed": 0,
+      "behavioral_preservation_rate": 86.0
+    }
+  }
+}

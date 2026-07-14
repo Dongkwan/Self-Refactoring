@@ -1,0 +1,851 @@
+{
+  "experiment": "RQ4_fair_feedback_loop",
+  "model": "deepseek-coder-6.7b-instruct",
+  "design": {
+    "description": "Both conditions use LM Studio generation. Only difference is few-shot examples.",
+    "round0": "no_fewshot - standard prompt only",
+    "round1": "self_refactored - k=3 (smelly,clean) few-shot examples prepended",
+    "temperature": 0.0,
+    "max_tokens": 2048
+  },
+  "fewshot_task_ids": [
+    "BigCodeBench/129",
+    "BigCodeBench/199",
+    "BigCodeBench/771"
+  ],
+  "summary": {
+    "n_tasks": 50,
+    "n_valid": 48,
+    "k_fewshot": 3,
+    "no_fewshot": {
+      "mean_density": 7.2464,
+      "median_density": 0.0,
+      "std_density": 12.6399,
+      "min_density": 0.0,
+      "max_density": 50.0,
+      "n": 48
+    },
+    "self_refactored": {
+      "mean_density": 8.7632,
+      "median_density": 0.0,
+      "std_density": 13.924,
+      "min_density": 0.0,
+      "max_density": 50.0,
+      "n": 48
+    },
+    "comparison": {
+      "mean_delta_d": -1.5167,
+      "median_delta_d": 0.0,
+      "std_delta_d": 9.3385,
+      "pct_fewshot_better": 18.75,
+      "pct_no_fewshot_better": 20.83,
+      "pct_tied": 60.42,
+      "n_fewshot_better": 9,
+      "n_no_fewshot_better": 10,
+      "n_tied": 29,
+      "wilcoxon_statistic": 72.0,
+      "wilcoxon_p_value": 0.823771,
+      "effect_size_r": 0.2421,
+      "significant": false
+    }
+  },
+  "per_task": [
+    {
+      "task_id": "BigCodeBench/0",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 12,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 12,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/2",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 5,
+        "loc": 10,
+        "density": 50.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 5,
+        "loc": 10,
+        "density": 50.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/6",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 3,
+        "loc": 13,
+        "density": 23.0769,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 3,
+        "loc": 13,
+        "density": 23.0769,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/8",
+      "delta_d": -33.3333,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 8,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 3,
+        "loc": 9,
+        "density": 33.3333,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/9",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 9,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 9,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/11",
+      "delta_d": -30.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 11,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 3,
+        "loc": 10,
+        "density": 30.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/14",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 30,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 20,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/18",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 23,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 27,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/23",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 8,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 8,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/30",
+      "delta_d": -16.6667,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 24,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 3,
+        "loc": 18,
+        "density": 16.6667,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/32",
+      "delta_d": -2.9762,
+      "no_fewshot": {
+        "smells": 1,
+        "loc": 24,
+        "density": 4.1667,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 1,
+        "loc": 14,
+        "density": 7.1429,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/33",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 6,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 5,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/37",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 17,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 13,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/39",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 15,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 17,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/43",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 10,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 14,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/46",
+      "delta_d": 20.0,
+      "no_fewshot": {
+        "smells": 3,
+        "loc": 15,
+        "density": 20.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 12,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/49",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 11,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 15,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/50",
+      "delta_d": -13.7019,
+      "no_fewshot": {
+        "smells": 3,
+        "loc": 32,
+        "density": 9.375,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 3,
+        "loc": 13,
+        "density": 23.0769,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/56",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 7,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 8,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/57",
+      "delta_d": 11.5385,
+      "no_fewshot": {
+        "smells": 3,
+        "loc": 26,
+        "density": 11.5385,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 10,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/58",
+      "delta_d": -5.4945,
+      "no_fewshot": {
+        "smells": 3,
+        "loc": 13,
+        "density": 23.0769,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 4,
+        "loc": 14,
+        "density": 28.5714,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/59",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 14,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 14,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/67",
+      "delta_d": -14.6853,
+      "no_fewshot": {
+        "smells": 4,
+        "loc": 13,
+        "density": 30.7692,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 5,
+        "loc": 11,
+        "density": 45.4545,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/72",
+      "delta_d": 2.2857,
+      "no_fewshot": {
+        "smells": 3,
+        "loc": 21,
+        "density": 14.2857,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 3,
+        "loc": 25,
+        "density": 12.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/73",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 17,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 17,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/75",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 21,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 21,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/76",
+      "delta_d": 7.3171,
+      "no_fewshot": {
+        "smells": 3,
+        "loc": 41,
+        "density": 7.3171,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 12,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/78",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 14,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 10,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/79",
+      "delta_d": 2.439,
+      "no_fewshot": {
+        "smells": 5,
+        "loc": 41,
+        "density": 12.1951,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 4,
+        "loc": 41,
+        "density": 9.7561,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/85",
+      "delta_d": -10.3448,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 32,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 3,
+        "loc": 29,
+        "density": 10.3448,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/92",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 18,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 19,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/94",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 10,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 10,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/95",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 15,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 15,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/100",
+      "delta_d": 6.383,
+      "no_fewshot": {
+        "smells": 3,
+        "loc": 47,
+        "density": 6.383,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 25,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/102",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 10,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 10,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/103",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 38,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 16,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/105",
+      "delta_d": 12.5,
+      "no_fewshot": {
+        "smells": 6,
+        "loc": 16,
+        "density": 37.5,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 4,
+        "loc": 16,
+        "density": 25.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/106",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 23,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 27,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/108",
+      "delta_d": null,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 26,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "syntax_ok": false,
+        "density": null
+      }
+    },
+    {
+      "task_id": "BigCodeBench/109",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 16,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 18,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/110",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 17,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 17,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/111",
+      "delta_d": -3.3614,
+      "no_fewshot": {
+        "smells": 3,
+        "loc": 21,
+        "density": 14.2857,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 3,
+        "loc": 17,
+        "density": 17.6471,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/120",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 44,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 12,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/124",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 24,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 22,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/130",
+      "delta_d": 3.6364,
+      "no_fewshot": {
+        "smells": 4,
+        "loc": 10,
+        "density": 40.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 4,
+        "loc": 11,
+        "density": 36.3636,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/131",
+      "delta_d": 11.9047,
+      "no_fewshot": {
+        "smells": 4,
+        "loc": 12,
+        "density": 33.3333,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 3,
+        "loc": 14,
+        "density": 21.4286,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/132",
+      "delta_d": null,
+      "no_fewshot": {
+        "syntax_ok": false,
+        "density": null
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 14,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/143",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 13,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 13,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/145",
+      "delta_d": 0.0,
+      "no_fewshot": {
+        "smells": 0,
+        "loc": 27,
+        "density": 0.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 0,
+        "loc": 9,
+        "density": 0.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/151",
+      "delta_d": -20.2429,
+      "no_fewshot": {
+        "smells": 4,
+        "loc": 38,
+        "density": 10.5263,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 4,
+        "loc": 13,
+        "density": 30.7692,
+        "syntax_ok": true
+      }
+    }
+  ],
+  "elapsed_seconds": 227.3
+}

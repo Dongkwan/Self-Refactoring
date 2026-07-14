@@ -1,0 +1,264 @@
+{
+  "models": {
+    "CodeLlama-13B": {
+      "NarrativeComment": {
+        "self": {
+          "n": 441,
+          "median_srr": 0.0,
+          "mean_srr": 4.54,
+          "pct_improved": 5.4,
+          "pct_fully_removed": 4.3,
+          "mean_itc": 9.6
+        },
+        "zero_shot": {
+          "n": 441,
+          "median_srr": 0.0,
+          "mean_srr": 5.04,
+          "pct_improved": 6.8,
+          "pct_fully_removed": 4.3,
+          "mean_itc": 9.6
+        }
+      },
+      "ConfidentFallback": {
+        "self": {
+          "n": 5,
+          "median_srr": 100.0,
+          "mean_srr": 70.5,
+          "pct_improved": 100.0,
+          "pct_fully_removed": 60.0,
+          "mean_itc": 4.6
+        },
+        "zero_shot": {
+          "n": 5,
+          "median_srr": 0.0,
+          "mean_srr": 20.0,
+          "pct_improved": 20.0,
+          "pct_fully_removed": 20.0,
+          "mean_itc": 8.2
+        }
+      },
+      "OverProtectiveHandler": {
+        "self": {
+          "n": 5,
+          "median_srr": 40.0,
+          "mean_srr": 50.5,
+          "pct_improved": 80.0,
+          "pct_fully_removed": 40.0,
+          "mean_itc": 6.4
+        },
+        "zero_shot": {
+          "n": 5,
+          "median_srr": 0.0,
+          "mean_srr": 17.5,
+          "pct_improved": 20.0,
+          "pct_fully_removed": 0.0,
+          "mean_itc": 10
+        }
+      },
+      "DocstringHallucination": {
+        "self": {
+          "n": 14,
+          "median_srr": 0.0,
+          "mean_srr": 7.14,
+          "pct_improved": 7.1,
+          "pct_fully_removed": 7.1,
+          "mean_itc": 9.36
+        },
+        "zero_shot": {
+          "n": 14,
+          "median_srr": 0.0,
+          "mean_srr": 7.14,
+          "pct_improved": 7.1,
+          "pct_fully_removed": 7.1,
+          "mean_itc": 9.36
+        }
+      }
+    },
+    "DeepSeekCoder-6.7B": {
+      "NarrativeComment": {
+        "self": {
+          "n": 307,
+          "median_srr": 100.0,
+          "mean_srr": 76.44,
+          "pct_improved": 83.4,
+          "pct_fully_removed": 73.9,
+          "mean_itc": 3.46
+        },
+        "zero_shot": {
+          "n": 307,
+          "median_srr": 100.0,
+          "mean_srr": 78.68,
+          "pct_improved": 86.0,
+          "pct_fully_removed": 74.6,
+          "mean_itc": 3.58
+        }
+      },
+      "ConfidentFallback": {
+        "self": {
+          "n": 10,
+          "median_srr": 100.0,
+          "mean_srr": 91.67,
+          "pct_improved": 100.0,
+          "pct_fully_removed": 90.0,
+          "mean_itc": 2.1
+        },
+        "zero_shot": {
+          "n": 10,
+          "median_srr": 41.66,
+          "mean_srr": 43.0,
+          "pct_improved": 60.0,
+          "pct_fully_removed": 20.0,
+          "mean_itc": 8.2
+        }
+      },
+      "OverProtectiveHandler": {
+        "self": {
+          "n": 5,
+          "median_srr": 100.0,
+          "mean_srr": 100.0,
+          "pct_improved": 100.0,
+          "pct_fully_removed": 100.0,
+          "mean_itc": 1
+        },
+        "zero_shot": {
+          "n": 5,
+          "median_srr": 33.33,
+          "mean_srr": 46.67,
+          "pct_improved": 60.0,
+          "pct_fully_removed": 40.0,
+          "mean_itc": 6.4
+        }
+      }
+    },
+    "StarCoder2-15B": {
+      "ConfidentFallback": {
+        "self": {
+          "n": 9,
+          "median_srr": 100.0,
+          "mean_srr": 88.89,
+          "pct_improved": 88.9,
+          "pct_fully_removed": 88.9,
+          "mean_itc": 2
+        },
+        "zero_shot": {
+          "n": 9,
+          "median_srr": 0.0,
+          "mean_srr": 16.67,
+          "pct_improved": 22.2,
+          "pct_fully_removed": 11.1,
+          "mean_itc": 9
+        }
+      },
+      "OverProtectiveHandler": {
+        "self": {
+          "n": 7,
+          "median_srr": 100.0,
+          "mean_srr": 85.71,
+          "pct_improved": 85.7,
+          "pct_fully_removed": 85.7,
+          "mean_itc": 2.29
+        },
+        "zero_shot": {
+          "n": 7,
+          "median_srr": 0.0,
+          "mean_srr": 7.14,
+          "pct_improved": 14.3,
+          "pct_fully_removed": 0.0,
+          "mean_itc": 10
+        }
+      },
+      "DocstringHallucination": {
+        "self": {
+          "n": 2,
+          "median_srr": 0.0,
+          "mean_srr": 0.0,
+          "pct_improved": 0.0,
+          "pct_fully_removed": 0.0,
+          "mean_itc": 10
+        },
+        "zero_shot": {
+          "n": 2,
+          "median_srr": 50.0,
+          "mean_srr": 50.0,
+          "pct_improved": 50.0,
+          "pct_fully_removed": 50.0,
+          "mean_itc": 5.5
+        }
+      }
+    }
+  },
+  "aggregated_by_smell_type": {
+    "NarrativeComment": {
+      "self": {
+        "n": 748,
+        "median_srr": 0.0,
+        "mean_srr": 34.05,
+        "pct_improved": 37.4,
+        "pct_fully_removed": 32.9,
+        "mean_itc": 7.08
+      },
+      "zero_shot": {
+        "n": 748,
+        "median_srr": 0.0,
+        "mean_srr": 35.26,
+        "pct_improved": 39.3,
+        "pct_fully_removed": 33.2,
+        "mean_itc": 7.13
+      }
+    },
+    "ConfidentFallback": {
+      "self": {
+        "n": 24,
+        "median_srr": 100.0,
+        "mean_srr": 86.22,
+        "pct_improved": 95.8,
+        "pct_fully_removed": 83.3,
+        "mean_itc": 2.58
+      },
+      "zero_shot": {
+        "n": 24,
+        "median_srr": 0.0,
+        "mean_srr": 28.33,
+        "pct_improved": 37.5,
+        "pct_fully_removed": 16.7,
+        "mean_itc": 8.5
+      }
+    },
+    "OverProtectiveHandler": {
+      "self": {
+        "n": 17,
+        "median_srr": 100.0,
+        "mean_srr": 79.56,
+        "pct_improved": 88.2,
+        "pct_fully_removed": 76.5,
+        "mean_itc": 3.12
+      },
+      "zero_shot": {
+        "n": 17,
+        "median_srr": 0.0,
+        "mean_srr": 21.81,
+        "pct_improved": 29.4,
+        "pct_fully_removed": 11.8,
+        "mean_itc": 8.94
+      }
+    },
+    "DocstringHallucination": {
+      "self": {
+        "n": 16,
+        "median_srr": 0.0,
+        "mean_srr": 6.25,
+        "pct_improved": 6.2,
+        "pct_fully_removed": 6.2,
+        "mean_itc": 9.44
+      },
+      "zero_shot": {
+        "n": 16,
+        "median_srr": 0.0,
+        "mean_srr": 12.5,
+        "pct_improved": 12.5,
+        "pct_fully_removed": 12.5,
+        "mean_itc": 8.88
+      }
+    }
+  }
+}

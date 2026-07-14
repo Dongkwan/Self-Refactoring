@@ -1,0 +1,49 @@
+{
+  "description": "Behavioral Preservation Test: BigCodeBench test cases on original vs refactored code",
+  "models": {
+    "CodeLlama-13B": {
+      "n_total": 457,
+      "n_original_pass": 64,
+      "n_refactored_pass": 63,
+      "n_preserved": 63,
+      "n_broken": 1,
+      "n_fixed": 0,
+      "original_pass_rate": 14.0,
+      "refactored_pass_rate": 13.8,
+      "behavioral_preservation_rate": 98.4
+    },
+    "DeepSeekCoder-6.7B": {
+      "n_total": 316,
+      "n_original_pass": 58,
+      "n_refactored_pass": 54,
+      "n_preserved": 51,
+      "n_broken": 7,
+      "n_fixed": 3,
+      "original_pass_rate": 18.4,
+      "refactored_pass_rate": 17.1,
+      "behavioral_preservation_rate": 87.9
+    },
+    "StarCoder2-15B": {
+      "n_total": 14,
+      "n_original_pass": 3,
+      "n_refactored_pass": 2,
+      "n_preserved": 2,
+      "n_broken": 1,
+      "n_fixed": 0,
+      "original_pass_rate": 21.4,
+      "refactored_pass_rate": 14.3,
+      "behavioral_preservation_rate": 66.7
+    },
+    "Qwen2.5-Coder-14B": {
+      "n_total": 617,
+      "n_original_pass": 200,
+      "n_refactored_pass": 199,
+      "n_preserved": 196,
+      "n_broken": 4,
+      "n_fixed": 3,
+      "original_pass_rate": 32.4,
+      "refactored_pass_rate": 32.3,
+      "behavioral_preservation_rate": 98.0
+    }
+  }
+}

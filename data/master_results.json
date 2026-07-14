@@ -1,0 +1,374 @@
+{
+  "rq1": {
+    "card_sort": {
+      "n_snippets": 500,
+      "n_annotators": 2,
+      "cohens_kappa": 0.83,
+      "agreement_level": "substantial",
+      "llm_artifact_smells_identified": 6,
+      "per_smell_agreement": {
+        "DocstringHallucination": 0.87,
+        "BoilerplatePadding": 0.81,
+        "RedundantTypeComment": 0.91,
+        "ConfidentFallback": 0.78,
+        "NarrativeComment": 0.85,
+        "OverProtectiveHandler": 0.82
+      }
+    },
+    "detector_validation": {
+      "holdout_size": 200,
+      "per_smell": {
+        "DocstringHallucination": {
+          "precision": 0.89,
+          "recall": 0.84,
+          "f1": 0.86
+        },
+        "BoilerplatePadding": {
+          "precision": 0.87,
+          "recall": 0.81,
+          "f1": 0.84
+        },
+        "RedundantTypeComment": {
+          "precision": 0.93,
+          "recall": 0.88,
+          "f1": 0.9
+        },
+        "ConfidentFallback": {
+          "precision": 0.86,
+          "recall": 0.82,
+          "f1": 0.84
+        },
+        "NarrativeComment": {
+          "precision": 0.91,
+          "recall": 0.87,
+          "f1": 0.89
+        },
+        "OverProtectiveHandler": {
+          "precision": 0.88,
+          "recall": 0.83,
+          "f1": 0.85
+        }
+      },
+      "overall": {
+        "precision": 0.89,
+        "recall": 0.84,
+        "f1": 0.86
+      }
+    },
+    "llm_artifact_prevalence_pct": 30.0,
+    "per_smell_snippet_pct": {
+      "NarrativeComment": 28.9,
+      "ConfidentFallback": 0.9,
+      "OverProtectiveHandler": 0.6,
+      "DocstringHallucination": 0.3
+    },
+    "per_model": {
+      "CodeLlama-13B": {
+        "params": "13B",
+        "snippets": 1140,
+        "avg_loc": 27.5,
+        "smelly_pct": 40.1
+      },
+      "DeepSeekCoder-6.7B": {
+        "params": "6.7B",
+        "snippets": 1140,
+        "avg_loc": 21.3,
+        "smelly_pct": 27.7
+      },
+      "StarCoder2-15B": {
+        "params": "15B",
+        "snippets": 1140,
+        "avg_loc": 17.3,
+        "smelly_pct": 1.2
+      },
+      "Mistral-7B": {
+        "params": "7B",
+        "snippets": 1140,
+        "avg_loc": 22.3,
+        "smelly_pct": 26.8
+      },
+      "Qwen2.5-Coder-14B": {
+        "params": "14B",
+        "snippets": 1140,
+        "avg_loc": 27.7,
+        "smelly_pct": 54.1
+      }
+    }
+  },
+  "rq2": {
+    "aggregated": {
+      "zero_shot": {
+        "srr_median": 28.6,
+        "srr_iqr": [
+          2.9,
+          50.0
+        ],
+        "tpr_mean": 79.0,
+        "tpr_std": 40.7,
+        "rsr_mean": 59.2,
+        "rsr_std": 49.1,
+        "itc_mean": 3.54,
+        "itc_std": 2.64,
+        "n": 1709
+      },
+      "cross": {
+        "srr_median": 54.5,
+        "srr_iqr": [
+          40.0,
+          71.4
+        ],
+        "tpr_mean": 86.3,
+        "tpr_std": 34.4,
+        "rsr_mean": 78.5,
+        "rsr_std": 41.1,
+        "itc_mean": 2.81,
+        "itc_std": 2.13,
+        "n": 1709
+      },
+      "self": {
+        "srr_median": 60.0,
+        "srr_iqr": [
+          50.0,
+          75.0
+        ],
+        "tpr_mean": 89.1,
+        "tpr_std": 31.2,
+        "rsr_mean": 82.3,
+        "rsr_std": 38.2,
+        "itc_mean": 2.35,
+        "itc_std": 1.74,
+        "n": 1709
+      },
+      "upscaled": {
+        "srr_median": 75.0,
+        "srr_iqr": [
+          60.0,
+          100.0
+        ],
+        "tpr_mean": 92.0,
+        "tpr_std": 27.1,
+        "rsr_mean": 88.1,
+        "rsr_std": 32.4,
+        "itc_mean": 2.07,
+        "itc_std": 1.48,
+        "n": 1709
+      }
+    },
+    "by_category": {
+      "LLM Artifact": {
+        "self_srr_median": 66.7,
+        "n": 1709
+      },
+      "Implementation": {
+        "self_srr_median": 59.2,
+        "n": 1401
+      },
+      "Design": {
+        "self_srr_median": 0.0,
+        "n": 581
+      }
+    },
+    "statistics": {
+      "self_vs_cross": {
+        "statistic": 25450507.5,
+        "p_value": 2.728782278433892e-68,
+        "effect_size_r": 0.637,
+        "n": 1709,
+        "significant": true
+      },
+      "self_vs_zero_shot": {
+        "statistic": 8290444.5,
+        "p_value": 0.0,
+        "effect_size_r": 0.882,
+        "n": 1709,
+        "significant": true
+      },
+      "self_vs_upscaled": {
+        "statistic": 17769214.0,
+        "p_value": 0.0,
+        "effect_size_r": 0.747,
+        "n": 1709,
+        "significant": true
+      }
+    }
+  },
+  "rq3": {
+    "correlations": {
+      "LLM Artifact": {
+        "spearman_rho": 0.964,
+        "p_value": 0.0,
+        "n_pairs": 20,
+        "significant": true
+      },
+      "Implementation": {
+        "spearman_rho": 0.143,
+        "p_value": 0.4494,
+        "n_pairs": 30,
+        "significant": false
+      },
+      "Design": {
+        "spearman_rho": 0.01,
+        "p_value": 0.9622,
+        "n_pairs": 25,
+        "significant": false
+      },
+      "regression": {
+        "r_squared": 0.659,
+        "coef_density": 13.806,
+        "coef_model_size": 0.489,
+        "intercept": 32.536
+      }
+    },
+    "d_matrix_sample": {
+      "CodeLlama-13B": {
+        "NarrativeComment": 1.408,
+        "DocstringHallucination": 0.045,
+        "ConfidentFallback": 0.016,
+        "OverProtectiveHandler": 0.016,
+        "BoilerplatePadding": 0.0,
+        "RedundantTypeComment": 0.0,
+        "LongMethod": 2.319,
+        "LongParameterList": 1.018,
+        "DuplicateCode": 1.825,
+        "DeadCode": 1.123
+      },
+      "DeepSeekCoder-6.7B": {
+        "NarrativeComment": 1.266,
+        "DocstringHallucination": 0.0,
+        "ConfidentFallback": 0.054,
+        "OverProtectiveHandler": 0.025,
+        "BoilerplatePadding": 0.0,
+        "RedundantTypeComment": 0.0,
+        "LongMethod": 1.54,
+        "LongParameterList": 1.593,
+        "DuplicateCode": 0.87,
+        "DeadCode": 2.439
+      },
+      "StarCoder2-15B": {
+        "NarrativeComment": 0.0,
+        "DocstringHallucination": 0.01,
+        "ConfidentFallback": 0.051,
+        "OverProtectiveHandler": 0.035,
+        "BoilerplatePadding": 0.0,
+        "RedundantTypeComment": 0.0,
+        "LongMethod": 2.05,
+        "LongParameterList": 2.379,
+        "DuplicateCode": 2.29,
+        "DeadCode": 1.696
+      },
+      "Mistral-7B": {
+        "NarrativeComment": 1.164,
+        "DocstringHallucination": 0.0,
+        "ConfidentFallback": 0.024,
+        "OverProtectiveHandler": 0.031,
+        "BoilerplatePadding": 0.0,
+        "RedundantTypeComment": 0.0,
+        "LongMethod": 2.344,
+        "LongParameterList": 0.677,
+        "DuplicateCode": 0.892,
+        "DeadCode": 0.59
+      },
+      "Qwen2.5-Coder-14B": {
+        "NarrativeComment": 1.913,
+        "DocstringHallucination": 0.006,
+        "ConfidentFallback": 0.047,
+        "OverProtectiveHandler": 0.028,
+        "BoilerplatePadding": 0.0,
+        "RedundantTypeComment": 0.0,
+        "LongMethod": 1.151,
+        "LongParameterList": 1.277,
+        "DuplicateCode": 1.043,
+        "DeadCode": 2.157
+      }
+    },
+    "r_matrix_sample": {
+      "CodeLlama-13B": {
+        "NarrativeComment": 76.1,
+        "ConfidentFallback": 57.7,
+        "OverProtectiveHandler": 56.8,
+        "DocstringHallucination": 57.9,
+        "LongMethod": 53.2,
+        "LongParameterList": 53.2,
+        "DuplicateCode": 52.5,
+        "DeadCode": 58.9
+      },
+      "DeepSeekCoder-6.7B": {
+        "NarrativeComment": 73.5,
+        "ConfidentFallback": 58.1,
+        "OverProtectiveHandler": 54.1,
+        "DocstringHallucination": 54.1,
+        "LongMethod": 53.7,
+        "LongParameterList": 53.5,
+        "DuplicateCode": 53.5,
+        "DeadCode": 54.4
+      },
+      "StarCoder2-15B": {
+        "NarrativeComment": 49.9,
+        "ConfidentFallback": 55.9,
+        "OverProtectiveHandler": 56.7,
+        "DocstringHallucination": 53.9,
+        "LongMethod": 54.3,
+        "LongParameterList": 54.9,
+        "DuplicateCode": 55.6,
+        "DeadCode": 58.3
+      },
+      "Mistral-7B": {
+        "NarrativeComment": 71.6,
+        "ConfidentFallback": 56.1,
+        "OverProtectiveHandler": 56.8,
+        "DocstringHallucination": 47.7,
+        "LongMethod": 53.4,
+        "LongParameterList": 52.5,
+        "DuplicateCode": 59.6,
+        "DeadCode": 59.7
+      },
+      "Qwen2.5-Coder-14B": {
+        "NarrativeComment": 82.2,
+        "ConfidentFallback": 56.9,
+        "OverProtectiveHandler": 55.0,
+        "DocstringHallucination": 56.1,
+        "LongMethod": 55.5,
+        "LongParameterList": 53.0,
+        "DuplicateCode": 56.0,
+        "DeadCode": 52.3
+      }
+    }
+  },
+  "rq4": {
+    "aggregated": {
+      "no_fewshot": {
+        "median_delta_d": 0.0,
+        "mean_delta_d": -0.05,
+        "std_delta_d": 0.24
+      },
+      "random_fewshot": {
+        "median_delta_d": 0.93,
+        "mean_delta_d": 0.98,
+        "std_delta_d": 0.36
+      },
+      "self_refactored": {
+        "median_delta_d": 1.61,
+        "mean_delta_d": 1.62,
+        "std_delta_d": 0.22
+      },
+      "human_refactored": {
+        "median_delta_d": 2.83,
+        "mean_delta_d": 2.88,
+        "std_delta_d": 0.48
+      }
+    },
+    "statistics": {
+      "self_vs_no_fewshot": {
+        "statistic": 31375.0,
+        "p_value": 4.627212392093009e-43,
+        "significant": true
+      },
+      "self_vs_random": {
+        "statistic": 31260.0,
+        "p_value": 1.8383120125497886e-42,
+        "significant": true
+      },
+      "ceiling_percentage": 64.5
+    }
+  }
+}

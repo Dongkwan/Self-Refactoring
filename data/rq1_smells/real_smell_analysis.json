@@ -1,0 +1,71 @@
+{
+  "CodeLlama-13B": {
+    "total_files": 1140,
+    "smelly_files": 19,
+    "smelly_pct": 1.7,
+    "total_findings": 19,
+    "avg_findings_per_file": 0.02,
+    "errors": 0,
+    "per_smell": {
+      "ConfidentFallback": 5,
+      "DocstringHallucination": 14
+    }
+  },
+  "DeepSeekCoder-6.7B": {
+    "total_files": 1140,
+    "smelly_files": 10,
+    "smelly_pct": 0.9,
+    "total_findings": 13,
+    "avg_findings_per_file": 0.01,
+    "errors": 0,
+    "per_smell": {
+      "ConfidentFallback": 13
+    }
+  },
+  "DeepSeekCoder-33B": {
+    "total_files": 1140,
+    "smelly_files": 7,
+    "smelly_pct": 0.6,
+    "total_findings": 7,
+    "avg_findings_per_file": 0.01,
+    "errors": 0,
+    "per_smell": {
+      "ConfidentFallback": 7
+    }
+  },
+  "StarCoder2-15B": {
+    "total_files": 1140,
+    "smelly_files": 11,
+    "smelly_pct": 1.0,
+    "total_findings": 12,
+    "avg_findings_per_file": 0.01,
+    "errors": 0,
+    "per_smell": {
+      "ConfidentFallback": 10,
+      "DocstringHallucination": 2
+    }
+  },
+  "Mistral-7B": {
+    "total_files": 1140,
+    "smelly_files": 5,
+    "smelly_pct": 0.4,
+    "total_findings": 6,
+    "avg_findings_per_file": 0.01,
+    "errors": 0,
+    "per_smell": {
+      "ConfidentFallback": 6
+    }
+  },
+  "Qwen2.5-Coder-14B": {
+    "total_files": 1140,
+    "smelly_files": 17,
+    "smelly_pct": 1.5,
+    "total_findings": 17,
+    "avg_findings_per_file": 0.01,
+    "errors": 0,
+    "per_smell": {
+      "ConfidentFallback": 15,
+      "DocstringHallucination": 2
+    }
+  }
+}

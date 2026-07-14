@@ -1,0 +1,225 @@
+{
+  "per_model": {
+    "CodeLlama-13B": {
+      "total_snippets": 1140,
+      "smelly_snippets": 457,
+      "smelly_pct": 40.1,
+      "avg_loc": 23.5,
+      "per_smell": {
+        "NarrativeComment": {
+          "snippets": 441,
+          "pct": 38.7,
+          "total_instances": 441
+        },
+        "DocstringHallucination": {
+          "snippets": 14,
+          "pct": 1.2,
+          "total_instances": 14
+        },
+        "ConfidentFallback": {
+          "snippets": 5,
+          "pct": 0.4,
+          "total_instances": 5
+        },
+        "OverProtectiveHandler": {
+          "snippets": 5,
+          "pct": 0.4,
+          "total_instances": 5
+        },
+        "BoilerplatePadding": {
+          "snippets": 0,
+          "pct": 0.0,
+          "total_instances": 0
+        },
+        "RedundantTypeComment": {
+          "snippets": 0,
+          "pct": 0.0,
+          "total_instances": 0
+        }
+      }
+    },
+    "DeepSeekCoder-6.7B": {
+      "total_snippets": 1140,
+      "smelly_snippets": 316,
+      "smelly_pct": 27.7,
+      "avg_loc": 17.9,
+      "per_smell": {
+        "NarrativeComment": {
+          "snippets": 307,
+          "pct": 26.9,
+          "total_instances": 307
+        },
+        "DocstringHallucination": {
+          "snippets": 0,
+          "pct": 0.0,
+          "total_instances": 0
+        },
+        "ConfidentFallback": {
+          "snippets": 10,
+          "pct": 0.9,
+          "total_instances": 13
+        },
+        "OverProtectiveHandler": {
+          "snippets": 5,
+          "pct": 0.4,
+          "total_instances": 6
+        },
+        "BoilerplatePadding": {
+          "snippets": 0,
+          "pct": 0.0,
+          "total_instances": 0
+        },
+        "RedundantTypeComment": {
+          "snippets": 0,
+          "pct": 0.0,
+          "total_instances": 0
+        }
+      }
+    },
+    "StarCoder2-15B": {
+      "total_snippets": 1140,
+      "smelly_snippets": 14,
+      "smelly_pct": 1.2,
+      "avg_loc": 17.2,
+      "per_smell": {
+        "NarrativeComment": {
+          "snippets": 0,
+          "pct": 0.0,
+          "total_instances": 0
+        },
+        "DocstringHallucination": {
+          "snippets": 2,
+          "pct": 0.2,
+          "total_instances": 2
+        },
+        "ConfidentFallback": {
+          "snippets": 9,
+          "pct": 0.8,
+          "total_instances": 10
+        },
+        "OverProtectiveHandler": {
+          "snippets": 7,
+          "pct": 0.6,
+          "total_instances": 7
+        },
+        "BoilerplatePadding": {
+          "snippets": 0,
+          "pct": 0.0,
+          "total_instances": 0
+        },
+        "RedundantTypeComment": {
+          "snippets": 0,
+          "pct": 0.0,
+          "total_instances": 0
+        }
+      }
+    },
+    "Mistral-7B": {
+      "total_snippets": 1140,
+      "smelly_snippets": 305,
+      "smelly_pct": 26.8,
+      "avg_loc": 18.7,
+      "per_smell": {
+        "NarrativeComment": {
+          "snippets": 296,
+          "pct": 26.0,
+          "total_instances": 296
+        },
+        "DocstringHallucination": {
+          "snippets": 0,
+          "pct": 0.0,
+          "total_instances": 0
+        },
+        "ConfidentFallback": {
+          "snippets": 5,
+          "pct": 0.4,
+          "total_instances": 6
+        },
+        "OverProtectiveHandler": {
+          "snippets": 8,
+          "pct": 0.7,
+          "total_instances": 8
+        },
+        "BoilerplatePadding": {
+          "snippets": 0,
+          "pct": 0.0,
+          "total_instances": 0
+        },
+        "RedundantTypeComment": {
+          "snippets": 0,
+          "pct": 0.0,
+          "total_instances": 0
+        }
+      }
+    },
+    "Qwen2.5-Coder-14B": {
+      "total_snippets": 1140,
+      "smelly_snippets": 617,
+      "smelly_pct": 54.1,
+      "avg_loc": 23.0,
+      "per_smell": {
+        "NarrativeComment": {
+          "snippets": 605,
+          "pct": 53.1,
+          "total_instances": 605
+        },
+        "DocstringHallucination": {
+          "snippets": 2,
+          "pct": 0.2,
+          "total_instances": 2
+        },
+        "ConfidentFallback": {
+          "snippets": 15,
+          "pct": 1.3,
+          "total_instances": 15
+        },
+        "OverProtectiveHandler": {
+          "snippets": 8,
+          "pct": 0.7,
+          "total_instances": 9
+        },
+        "BoilerplatePadding": {
+          "snippets": 0,
+          "pct": 0.0,
+          "total_instances": 0
+        },
+        "RedundantTypeComment": {
+          "snippets": 0,
+          "pct": 0.0,
+          "total_instances": 0
+        }
+      }
+    }
+  },
+  "overall": {
+    "total_snippets": 5700,
+    "smelly_snippets": 1709,
+    "smelly_pct": 30.0,
+    "per_smell": {
+      "NarrativeComment": {
+        "snippets": 1649,
+        "pct": 28.9
+      },
+      "DocstringHallucination": {
+        "snippets": 18,
+        "pct": 0.3
+      },
+      "ConfidentFallback": {
+        "snippets": 44,
+        "pct": 0.8
+      },
+      "OverProtectiveHandler": {
+        "snippets": 33,
+        "pct": 0.6
+      },
+      "BoilerplatePadding": {
+        "snippets": 0,
+        "pct": 0.0
+      },
+      "RedundantTypeComment": {
+        "snippets": 0,
+        "pct": 0.0
+      }
+    }
+  }
+}

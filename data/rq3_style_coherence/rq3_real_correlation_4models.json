@@ -1,0 +1,163 @@
+{
+  "description": "RQ3 Real Style Coherence (4 models): Spearman rank correlation between generation density and self-refactoring SRR",
+  "models": [
+    "CodeLlama-13B",
+    "DeepSeekCoder-6.7B",
+    "StarCoder2-15B",
+    "Qwen2.5-Coder-14B"
+  ],
+  "llm_artifact_smells": {
+    "smell_types": [
+      "NC",
+      "CF",
+      "OP",
+      "DH"
+    ],
+    "n_pairs": 14,
+    "pairs": [
+      {
+        "label": "CodeLlama-13B:NC",
+        "density": 0.3868421052631579,
+        "self_srr": 4.54
+      },
+      {
+        "label": "CodeLlama-13B:CF",
+        "density": 0.0043859649122807015,
+        "self_srr": 70.5
+      },
+      {
+        "label": "CodeLlama-13B:OP",
+        "density": 0.0043859649122807015,
+        "self_srr": 50.5
+      },
+      {
+        "label": "CodeLlama-13B:DH",
+        "density": 0.012280701754385965,
+        "self_srr": 7.14
+      },
+      {
+        "label": "DeepSeekCoder-6.7B:NC",
+        "density": 0.2692982456140351,
+        "self_srr": 76.44
+      },
+      {
+        "label": "DeepSeekCoder-6.7B:CF",
+        "density": 0.008771929824561403,
+        "self_srr": 91.67
+      },
+      {
+        "label": "DeepSeekCoder-6.7B:OP",
+        "density": 0.0043859649122807015,
+        "self_srr": 100.0
+      },
+      {
+        "label": "StarCoder2-15B:CF",
+        "density": 0.007894736842105263,
+        "self_srr": 88.89
+      },
+      {
+        "label": "StarCoder2-15B:OP",
+        "density": 0.0061403508771929825,
+        "self_srr": 85.71
+      },
+      {
+        "label": "StarCoder2-15B:DH",
+        "density": 0.0017543859649122807,
+        "self_srr": 0.0
+      },
+      {
+        "label": "Qwen2.5-Coder-14B:NC",
+        "density": 0.5307017543859649,
+        "self_srr": 96.83
+      },
+      {
+        "label": "Qwen2.5-Coder-14B:CF",
+        "density": 0.013157894736842105,
+        "self_srr": 100.0
+      },
+      {
+        "label": "Qwen2.5-Coder-14B:OP",
+        "density": 0.007017543859649123,
+        "self_srr": 100.0
+      },
+      {
+        "label": "Qwen2.5-Coder-14B:DH",
+        "density": 0.0017543859649122807,
+        "self_srr": 62.5
+      }
+    ],
+    "spearman_rho": 0.2286,
+    "p_value": 0.4317
+  },
+  "structural_smells": {
+    "smell_types": [
+      "CF",
+      "OP",
+      "DH"
+    ],
+    "n_pairs": 11,
+    "pairs": [
+      {
+        "label": "CodeLlama-13B:CF",
+        "density": 0.0043859649122807015,
+        "self_srr": 70.5
+      },
+      {
+        "label": "CodeLlama-13B:OP",
+        "density": 0.0043859649122807015,
+        "self_srr": 50.5
+      },
+      {
+        "label": "CodeLlama-13B:DH",
+        "density": 0.012280701754385965,
+        "self_srr": 7.14
+      },
+      {
+        "label": "DeepSeekCoder-6.7B:CF",
+        "density": 0.008771929824561403,
+        "self_srr": 91.67
+      },
+      {
+        "label": "DeepSeekCoder-6.7B:OP",
+        "density": 0.0043859649122807015,
+        "self_srr": 100.0
+      },
+      {
+        "label": "StarCoder2-15B:CF",
+        "density": 0.007894736842105263,
+        "self_srr": 88.89
+      },
+      {
+        "label": "StarCoder2-15B:OP",
+        "density": 0.0061403508771929825,
+        "self_srr": 85.71
+      },
+      {
+        "label": "StarCoder2-15B:DH",
+        "density": 0.0017543859649122807,
+        "self_srr": 0.0
+      },
+      {
+        "label": "Qwen2.5-Coder-14B:CF",
+        "density": 0.013157894736842105,
+        "self_srr": 100.0
+      },
+      {
+        "label": "Qwen2.5-Coder-14B:OP",
+        "density": 0.007017543859649123,
+        "self_srr": 100.0
+      },
+      {
+        "label": "Qwen2.5-Coder-14B:DH",
+        "density": 0.0017543859649122807,
+        "self_srr": 62.5
+      }
+    ],
+    "spearman_rho": 0.4408,
+    "p_value": 0.1747
+  },
+  "comparison_with_3models": {
+    "previous_llm_artifact_rho": -0.0061,
+    "previous_structural_rho": 0.244
+  }
+}

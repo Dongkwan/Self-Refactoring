@@ -1,0 +1,97 @@
+{
+  "aggregated": {
+    "zero_shot": {
+      "srr_median": 28.6,
+      "srr_iqr": [
+        2.9,
+        50.0
+      ],
+      "tpr_mean": 79.0,
+      "tpr_std": 40.7,
+      "rsr_mean": 59.2,
+      "rsr_std": 49.1,
+      "itc_mean": 3.54,
+      "itc_std": 2.64,
+      "n": 16755
+    },
+    "cross": {
+      "srr_median": 54.5,
+      "srr_iqr": [
+        40.0,
+        71.4
+      ],
+      "tpr_mean": 86.3,
+      "tpr_std": 34.4,
+      "rsr_mean": 78.5,
+      "rsr_std": 41.1,
+      "itc_mean": 2.81,
+      "itc_std": 2.13,
+      "n": 16755
+    },
+    "self": {
+      "srr_median": 60.0,
+      "srr_iqr": [
+        50.0,
+        75.0
+      ],
+      "tpr_mean": 89.1,
+      "tpr_std": 31.2,
+      "rsr_mean": 82.3,
+      "rsr_std": 38.2,
+      "itc_mean": 2.35,
+      "itc_std": 1.74,
+      "n": 16755
+    },
+    "upscaled": {
+      "srr_median": 75.0,
+      "srr_iqr": [
+        60.0,
+        100.0
+      ],
+      "tpr_mean": 92.0,
+      "tpr_std": 27.1,
+      "rsr_mean": 88.1,
+      "rsr_std": 32.4,
+      "itc_mean": 2.07,
+      "itc_std": 1.48,
+      "n": 16755
+    }
+  },
+  "by_category": {
+    "LLM Artifact": {
+      "self_srr_median": 66.7,
+      "n": 14502
+    },
+    "Implementation": {
+      "self_srr_median": 59.2,
+      "n": 13780
+    },
+    "Design": {
+      "self_srr_median": 0.0,
+      "n": 5715
+    }
+  },
+  "statistics": {
+    "self_vs_cross": {
+      "statistic": 25450507.5,
+      "p_value": 2.728782278433892e-68,
+      "effect_size_r": 0.637,
+      "n": 16755,
+      "significant": true
+    },
+    "self_vs_zero_shot": {
+      "statistic": 8290444.5,
+      "p_value": 0.0,
+      "effect_size_r": 0.882,
+      "n": 16755,
+      "significant": true
+    },
+    "self_vs_upscaled": {
+      "statistic": 17769214.0,
+      "p_value": 0.0,
+      "effect_size_r": 0.747,
+      "n": 16755,
+      "significant": true
+    }
+  }
+}

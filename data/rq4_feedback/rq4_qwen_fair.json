@@ -1,0 +1,828 @@
+{
+  "experiment": "RQ4_fair_feedback_loop",
+  "model": "qwen2.5-coder-14b-instruct",
+  "smell_type": "NarrativeComment",
+  "design": {
+    "description": "Both conditions use LM Studio generation. Only difference is few-shot examples.",
+    "round0": "no_fewshot - standard prompt only",
+    "round1": "self_refactored - k=3 (smelly,clean) few-shot examples prepended",
+    "temperature": 0.0,
+    "max_tokens": 2048,
+    "smell_detector": "NarrativeComment pattern matching (Qwen is 98% NC)",
+    "task_selection": "Top 50 by NC count from original Qwen solutions"
+  },
+  "fewshot_task_ids": [
+    "BigCodeBench/1134",
+    "BigCodeBench/67",
+    "BigCodeBench/936"
+  ],
+  "summary": {
+    "n_tasks": 50,
+    "n_valid": 35,
+    "k_fewshot": 3,
+    "no_fewshot": {
+      "mean_density": 16.5633,
+      "median_density": 14.5455,
+      "std_density": 6.7044,
+      "min_density": 5.2632,
+      "max_density": 33.3333,
+      "n": 35
+    },
+    "self_refactored": {
+      "mean_density": 22.3824,
+      "median_density": 20.6897,
+      "std_density": 10.4904,
+      "min_density": 7.0175,
+      "max_density": 55.5556,
+      "n": 35
+    },
+    "comparison": {
+      "mean_delta_d": -5.8191,
+      "median_delta_d": -3.6284,
+      "std_delta_d": 10.8527,
+      "pct_fewshot_better": 22.86,
+      "pct_no_fewshot_better": 77.14,
+      "pct_tied": 0.0,
+      "n_fewshot_better": 8,
+      "n_no_fewshot_better": 27,
+      "n_tied": 0,
+      "wilcoxon_statistic": 115.0,
+      "wilcoxon_p_value": 0.999683,
+      "effect_size_r": 0.6349,
+      "significant": false
+    }
+  },
+  "per_task": [
+    {
+      "task_id": "BigCodeBench/990",
+      "delta_d": -8.0953,
+      "no_fewshot": {
+        "smells": 3,
+        "loc": 35,
+        "density": 8.5714,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 4,
+        "loc": 24,
+        "density": 16.6667,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/378",
+      "delta_d": -4.5238,
+      "no_fewshot": {
+        "smells": 6,
+        "loc": 45,
+        "density": 13.3333,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 10,
+        "loc": 56,
+        "density": 17.8571,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/395",
+      "delta_d": 1.4474,
+      "no_fewshot": {
+        "smells": 9,
+        "loc": 40,
+        "density": 22.5,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 12,
+        "loc": 57,
+        "density": 21.0526,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/434",
+      "delta_d": 3.3991,
+      "no_fewshot": {
+        "smells": 10,
+        "loc": 38,
+        "density": 26.3158,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 11,
+        "loc": 48,
+        "density": 22.9167,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/1052",
+      "delta_d": -3.3116,
+      "no_fewshot": {
+        "smells": 8,
+        "loc": 55,
+        "density": 14.5455,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 10,
+        "loc": 56,
+        "density": 17.8571,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/161",
+      "delta_d": -0.5285,
+      "no_fewshot": {
+        "smells": 10,
+        "loc": 44,
+        "density": 22.7273,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 10,
+        "loc": 43,
+        "density": 23.2558,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/177",
+      "delta_d": 12.5731,
+      "no_fewshot": {
+        "smells": 9,
+        "loc": 38,
+        "density": 23.6842,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 5,
+        "loc": 45,
+        "density": 11.1111,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/424",
+      "delta_d": -31.3132,
+      "no_fewshot": {
+        "smells": 8,
+        "loc": 33,
+        "density": 24.2424,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 10,
+        "loc": 18,
+        "density": 55.5556,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/461",
+      "delta_d": 0.3031,
+      "no_fewshot": {
+        "smells": 6,
+        "loc": 44,
+        "density": 13.6364,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 8,
+        "loc": 60,
+        "density": 13.3333,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/780",
+      "delta_d": -0.8046,
+      "no_fewshot": {
+        "smells": 7,
+        "loc": 30,
+        "density": 23.3333,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 7,
+        "loc": 29,
+        "density": 24.1379,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/801",
+      "delta_d": 14.6154,
+      "no_fewshot": {
+        "smells": 9,
+        "loc": 30,
+        "density": 30.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 6,
+        "loc": 39,
+        "density": 15.3846,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/859",
+      "delta_d": -7.0,
+      "no_fewshot": {
+        "smells": 6,
+        "loc": 24,
+        "density": 25.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 8,
+        "loc": 25,
+        "density": 32.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/878",
+      "delta_d": -1.2097,
+      "no_fewshot": {
+        "smells": 7,
+        "loc": 62,
+        "density": 11.2903,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 7,
+        "loc": 56,
+        "density": 12.5,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/105",
+      "delta_d": -6.404,
+      "no_fewshot": {
+        "smells": 7,
+        "loc": 49,
+        "density": 14.2857,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 6,
+        "loc": 29,
+        "density": 20.6897,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/106",
+      "delta_d": -0.3508,
+      "no_fewshot": {
+        "smells": 3,
+        "loc": 45,
+        "density": 6.6667,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 4,
+        "loc": 57,
+        "density": 7.0175,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/236",
+      "delta_d": -8.3484,
+      "no_fewshot": {
+        "smells": 6,
+        "loc": 38,
+        "density": 15.7895,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 7,
+        "loc": 29,
+        "density": 24.1379,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/282",
+      "delta_d": -1.2965,
+      "no_fewshot": {
+        "smells": 6,
+        "loc": 47,
+        "density": 12.766,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 9,
+        "loc": 64,
+        "density": 14.0625,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/397",
+      "delta_d": 6.1969,
+      "no_fewshot": {
+        "smells": 6,
+        "loc": 31,
+        "density": 19.3548,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 5,
+        "loc": 38,
+        "density": 13.1579,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/402",
+      "delta_d": -10.0,
+      "no_fewshot": {
+        "smells": 6,
+        "loc": 40,
+        "density": 15.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 9,
+        "loc": 36,
+        "density": 25.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/484",
+      "delta_d": -9.8191,
+      "no_fewshot": {
+        "smells": 8,
+        "loc": 72,
+        "density": 11.1111,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 9,
+        "loc": 43,
+        "density": 20.9302,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/493",
+      "delta_d": null,
+      "no_fewshot": {
+        "smells": 5,
+        "loc": 36,
+        "density": 13.8889,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "error": "Error code: 400 - {'error': 'Context size has been exceeded.'}",
+        "density": null
+      }
+    },
+    {
+      "task_id": "BigCodeBench/502",
+      "delta_d": -16.4528,
+      "no_fewshot": {
+        "smells": 4,
+        "loc": 53,
+        "density": 7.5472,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 6,
+        "loc": 25,
+        "density": 24.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/520",
+      "delta_d": -0.5516,
+      "no_fewshot": {
+        "smells": 9,
+        "loc": 49,
+        "density": 18.3673,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 7,
+        "loc": 37,
+        "density": 18.9189,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/524",
+      "delta_d": -16.959,
+      "no_fewshot": {
+        "smells": 3,
+        "loc": 57,
+        "density": 5.2632,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 6,
+        "loc": 27,
+        "density": 22.2222,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/585",
+      "delta_d": null,
+      "no_fewshot": {
+        "smells": 7,
+        "loc": 47,
+        "density": 14.8936,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "error": "Error code: 400 - {'error': 'Context size has been exceeded.'}",
+        "density": null
+      }
+    },
+    {
+      "task_id": "BigCodeBench/586",
+      "delta_d": null,
+      "no_fewshot": {
+        "smells": 7,
+        "loc": 34,
+        "density": 20.5882,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "error": "Error code: 400 - {'error': 'Context size has been exceeded.'}",
+        "density": null
+      }
+    },
+    {
+      "task_id": "BigCodeBench/615",
+      "delta_d": null,
+      "no_fewshot": {
+        "smells": 8,
+        "loc": 32,
+        "density": 25.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "error": "Error code: 400 - {'error': 'Context size has been exceeded.'}",
+        "density": null
+      }
+    },
+    {
+      "task_id": "BigCodeBench/637",
+      "delta_d": -21.4393,
+      "no_fewshot": {
+        "smells": 6,
+        "loc": 46,
+        "density": 13.0435,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 10,
+        "loc": 29,
+        "density": 34.4828,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/708",
+      "delta_d": -2.1796,
+      "no_fewshot": {
+        "smells": 7,
+        "loc": 47,
+        "density": 14.8936,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 7,
+        "loc": 41,
+        "density": 17.0732,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/711",
+      "delta_d": -3.7815,
+      "no_fewshot": {
+        "smells": 6,
+        "loc": 34,
+        "density": 17.6471,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 6,
+        "loc": 28,
+        "density": 21.4286,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/752",
+      "delta_d": null,
+      "no_fewshot": {
+        "smells": 5,
+        "loc": 67,
+        "density": 7.4627,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "error": "Error code: 400 - {'error': 'Context size has been exceeded.'}",
+        "density": null
+      }
+    },
+    {
+      "task_id": "BigCodeBench/754",
+      "delta_d": null,
+      "no_fewshot": {
+        "smells": 6,
+        "loc": 73,
+        "density": 8.2192,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "error": "Error code: 400 - {'error': 'Context size has been exceeded.'}",
+        "density": null
+      }
+    },
+    {
+      "task_id": "BigCodeBench/760",
+      "delta_d": null,
+      "no_fewshot": {
+        "smells": 7,
+        "loc": 56,
+        "density": 12.5,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "error": "Error code: 400 - {'error': 'Context size has been exceeded.'}",
+        "density": null
+      }
+    },
+    {
+      "task_id": "BigCodeBench/776",
+      "delta_d": null,
+      "no_fewshot": {
+        "smells": 8,
+        "loc": 20,
+        "density": 40.0,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "error": "Error code: 400 - {'error': 'Context size has been exceeded.'}",
+        "density": null
+      }
+    },
+    {
+      "task_id": "BigCodeBench/841",
+      "delta_d": -1.6667,
+      "no_fewshot": {
+        "smells": 7,
+        "loc": 21,
+        "density": 33.3333,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 7,
+        "loc": 20,
+        "density": 35.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/847",
+      "delta_d": -15.4135,
+      "no_fewshot": {
+        "smells": 6,
+        "loc": 28,
+        "density": 21.4286,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 7,
+        "loc": 19,
+        "density": 36.8421,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/849",
+      "delta_d": null,
+      "no_fewshot": {
+        "smells": 6,
+        "loc": 23,
+        "density": 26.087,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "error": "Error code: 400 - {'error': 'Context size has been exceeded.'}",
+        "density": null
+      }
+    },
+    {
+      "task_id": "BigCodeBench/885",
+      "delta_d": null,
+      "no_fewshot": {
+        "smells": 7,
+        "loc": 32,
+        "density": 21.875,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "error": "Error code: 400 - {'error': 'Context size has been exceeded.'}",
+        "density": null
+      }
+    },
+    {
+      "task_id": "BigCodeBench/906",
+      "delta_d": null,
+      "no_fewshot": {
+        "smells": 4,
+        "loc": 47,
+        "density": 8.5106,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "error": "Error code: 400 - {'error': 'Context size has been exceeded.'}",
+        "density": null
+      }
+    },
+    {
+      "task_id": "BigCodeBench/908",
+      "delta_d": null,
+      "no_fewshot": {
+        "smells": 7,
+        "loc": 31,
+        "density": 22.5806,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "error": "Error code: 400 - {'error': 'Context size has been exceeded.'}",
+        "density": null
+      }
+    },
+    {
+      "task_id": "BigCodeBench/962",
+      "delta_d": null,
+      "no_fewshot": {
+        "smells": 6,
+        "loc": 29,
+        "density": 20.6897,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "error": "Error code: 400 - {'error': 'Context size has been exceeded.'}",
+        "density": null
+      }
+    },
+    {
+      "task_id": "BigCodeBench/963",
+      "delta_d": -40.8333,
+      "no_fewshot": {
+        "smells": 5,
+        "loc": 40,
+        "density": 12.5,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 8,
+        "loc": 15,
+        "density": 53.3333,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/973",
+      "delta_d": null,
+      "no_fewshot": {
+        "smells": 4,
+        "loc": 43,
+        "density": 9.3023,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "error": "Error code: 400 - {'error': 'Context size has been exceeded.'}",
+        "density": null
+      }
+    },
+    {
+      "task_id": "BigCodeBench/1043",
+      "delta_d": null,
+      "no_fewshot": {
+        "smells": 7,
+        "loc": 36,
+        "density": 19.4444,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "error": "Error code: 400 - {'error': 'Context size has been exceeded.'}",
+        "density": null
+      }
+    },
+    {
+      "task_id": "BigCodeBench/1116",
+      "delta_d": -6.6667,
+      "no_fewshot": {
+        "smells": 4,
+        "loc": 36,
+        "density": 11.1111,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 8,
+        "loc": 45,
+        "density": 17.7778,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/6",
+      "delta_d": -15.5556,
+      "no_fewshot": {
+        "smells": 4,
+        "loc": 36,
+        "density": 11.1111,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 8,
+        "loc": 30,
+        "density": 26.6667,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/14",
+      "delta_d": -3.6284,
+      "no_fewshot": {
+        "smells": 7,
+        "loc": 57,
+        "density": 12.2807,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 7,
+        "loc": 44,
+        "density": 15.9091,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/16",
+      "delta_d": 3.2634,
+      "no_fewshot": {
+        "smells": 7,
+        "loc": 33,
+        "density": 21.2121,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 7,
+        "loc": 39,
+        "density": 17.9487,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/75",
+      "delta_d": -8.4615,
+      "no_fewshot": {
+        "smells": 6,
+        "loc": 52,
+        "density": 11.5385,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 7,
+        "loc": 35,
+        "density": 20.0,
+        "syntax_ok": true
+      }
+    },
+    {
+      "task_id": "BigCodeBench/100",
+      "delta_d": 1.1278,
+      "no_fewshot": {
+        "smells": 5,
+        "loc": 35,
+        "density": 14.2857,
+        "syntax_ok": true
+      },
+      "self_refactored": {
+        "smells": 5,
+        "loc": 38,
+        "density": 13.1579,
+        "syntax_ok": true
+      }
+    }
+  ],
+  "elapsed_seconds": 362.5
+}

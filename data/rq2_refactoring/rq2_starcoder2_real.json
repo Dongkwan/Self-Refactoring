@@ -1,0 +1,310 @@
+{
+  "model": "StarCoder2-15B",
+  "lmstudio_model_id": "starcoder2-15b-instruct-v0.1",
+  "condition_results": {
+    "self": [
+      {
+        "task_id": "BigCodeBench/18",
+        "condition": "self",
+        "smells_before": 1,
+        "smells_after": 0,
+        "srr": 100.0,
+        "syntax_ok": true,
+        "iterations": 1,
+        "refactored_code": "import subprocess\nimport csv\nimport glob\nimport random\nimport os\ndef task_func(file):\n    if not os.path.isfile(file):\n        return []\n    if not file.endswith('.csv'):\n        return []\n    try:\n        with open(file, 'r') as f:\n            reader = csv.reader(f)\n            lines = list(reader)\n        random.shuffle(lines)\n        split_files = subprocess.run(['split', '-l', str(len(lines) // 2), file], capture_output=True).stdout.decode('utf-8').split('\\n')\n        for split_file in split_files:\n            if split_file:\n                with open(split_file, 'r') as f:\n                    reader = csv.reader(f)\n                    lines = list(reader)\n                random.shuffle(lines)\n                with open(split_file, 'w', newline='') as f:\n                    writer = csv.writer(f)\n                    writer.writerows(lines)\n        return glob.glob('split_*')\n    except Exception as e:\n        print(f\"Error occurred: {e}\")\n        return []"
+      },
+      {
+        "task_id": "BigCodeBench/59",
+        "condition": "self",
+        "smells_before": 2,
+        "smells_after": 0,
+        "srr": 100.0,
+        "syntax_ok": true,
+        "iterations": 1,
+        "refactored_code": "import wikipedia\nfrom wordcloud import WordCloud\nimport matplotlib.pyplot as plt\ndef task_func(page_title):\n    \"\"\"\n    Create a word cloud from the text of a Wikipedia page.\n    Args:\n        page_title (str): The title of the Wikipedia page.\n    Returns:\n        matplotlib.axes.Axes: The Axes object of the plotted data. Is None if there is no Wikipedia page with the title given as input.\n    \"\"\"\n    try:\n        page = wikipedia.page(page_title)\n        wordcloud = WordCloud().generate(page.content)\n        ax = plt.imshow(wordcloud, interpolation='bilinear')\n        plt.axis(\"off\")\n        return ax\n    except wikipedia.exceptions.PageError as e:\n        print(f\"Error: {e}\")\n        return None"
+      },
+      {
+        "task_id": "BigCodeBench/144",
+        "condition": "self",
+        "smells_before": 1,
+        "smells_after": 0,
+        "srr": 100.0,
+        "syntax_ok": true,
+        "iterations": 1,
+        "refactored_code": "import ipaddress\nimport requests\ndef task_func(ip_range, timeout):\n    \"\"\"\n    Scans a specified IP address range and sends an HTTP GET request to each IP to verify if it is an active web server.\n    Args:\n        ip_range (str): The IP range in CIDR format (e.g., '192.168.0.0/16').\n        timeout (int): The timeout value in seconds.\n    Returns:\n        list: A list of IP addresses that responded with a status code of 200.\n    Raises:\n        ValueError: If an invalid IP range is provided.\n    \"\"\"\n    try:\n        ip_network = ipaddress.ip_network(ip_range)\n    except ValueError:\n        raise ValueError(\"Invalid IP range provided.\")\n    active_web_servers = []\n    for ip in ip_network.hosts():\n        try:\n            response = requests.get(f\"http://{ip}\", timeout=timeout)\n            if response.status_code == 200:\n                active_web_servers.append(str(ip))\n        except Exception as e:\n            print(f\"Error occurred while sending request to {ip}: {e}\")\n    return active_web_servers"
+      },
+      {
+        "task_id": "BigCodeBench/383",
+        "condition": "self",
+        "smells_before": 1,
+        "smells_after": 1,
+        "srr": 0.0,
+        "syntax_ok": true,
+        "iterations": 10,
+        "refactored_code": "import pandas as pd\nimport seaborn as sns\nfrom collections import Counter\nfrom textblob import TextBlob\nfrom matplotlib import pyplot as plt\ndef task_func(text, n, top_k):\n    \"\"\"\n    Visualize the uppermost K n-grams in a given text string.\n    Args:\n        text (str): The input text string.\n        n (int): The n-gram length.\n        top_k (int): The number of top n-grams to visualize.\n    Returns:\n        None\n    \"\"\"\n    blob = TextBlob(text)\n    ngrams = blob.ngrams(n)\n    freq = Counter(ngrams)\n    df = pd.DataFrame(freq.most_common(top_k), columns=[\"ngram\", \"frequency\"])\n    df[\"ngram\"] = df[\"ngram\"].apply(lambda x: \" \".join(x))\n    sns.barplot(x=\"frequency\", y=\"ngram\", data=df)\n    plt.show()"
+      },
+      {
+        "task_id": "BigCodeBench/420",
+        "condition": "self",
+        "smells_before": 1,
+        "smells_after": 0,
+        "srr": 100.0,
+        "syntax_ok": true,
+        "iterations": 1,
+        "refactored_code": "import pandas as pd\nfrom sklearn.preprocessing import StandardScaler\ndef task_func(data):\n    numeric_columns = data.select_dtypes(include=['float64', 'int64']).columns\n    for column in numeric_columns:\n        try:\n            data[column] = StandardScaler().fit_transform(data[column].values.reshape(-1, 1))\n        except ValueError:\n            print(\"Error occurred while scaling column:\", column)\n            raise"
+      },
+      {
+        "task_id": "BigCodeBench/721",
+        "condition": "self",
+        "smells_before": 1,
+        "smells_after": 0,
+        "srr": 100.0,
+        "syntax_ok": true,
+        "iterations": 1,
+        "refactored_code": "import os\nimport csv\nfrom collections import Counter\ndef task_func(file_path):\n    if not os.path.exists(file_path):\n        return None\n    with open(file_path, 'r') as f:\n        reader = csv.reader(f)\n        words = []\n        for row in reader:\n            words.extend(row)\n    counter = Counter(words)\n    most_common = counter.most_common(1)\n    if most_common:\n        return most_common[0]\n    else:\n        raise ValueError(\"No most common word found\")"
+      },
+      {
+        "task_id": "BigCodeBench/775",
+        "condition": "self",
+        "smells_before": 1,
+        "smells_after": 0,
+        "srr": 100.0,
+        "syntax_ok": true,
+        "iterations": 1,
+        "refactored_code": "from string import ascii_lowercase\nimport re\nfrom collections import Counter\nLETTERS_PATTERN = re.compile(r'^(.*?)-[a-z]$')\ndef task_func(string):\n    match = LETTERS_PATTERN.match(string)\n    if match:\n        prefix, letter = match.groups()\n        counter = Counter(prefix)\n        return dict(counter)\n    else:\n        raise ValueError(\"Invalid string format\")"
+      },
+      {
+        "task_id": "BigCodeBench/841",
+        "condition": "self",
+        "smells_before": 1,
+        "smells_after": 0,
+        "srr": 100.0,
+        "syntax_ok": true,
+        "iterations": 1,
+        "refactored_code": "import re\nimport json\nfrom collections import defaultdict\nimport string\ndef task_func(json_string):\n    \"\"\"\n    Process a JSON string containing a \"text\" field: convert to lowercase, remove punctuation, and count word frequency.\n    This function takes a JSON string with a field named \"text\", and returns a dictionary with word counts. It processes the text by converting it to lowercase, removing all punctuation and non-alphanumeric characters (except spaces), and then counting the frequency of each word.\n    Note that: Punctuation is removed using the `string.punctuation` constant. The function is case-insensitive and treats words like \"Hello\" and \"hello\" as the same word. If the JSON string is malformed or the \"text\" field is missing, an empty dictionary is returned.\n    \"\"\"\n    try:\n        data = json.loads(json_string)\n    except json.JSONDecodeError as e:\n        print(f\"Error parsing JSON string: {e}\")\n        return {}\n    if \"text\" not in data:\n        print(\"Missing 'text' field in JSON data\")\n        return {}\n    text = data[\"text\"]\n    text = text.lower()\n    text = re.sub(r\"[^\\w\\s]\", \"\", text)\n    word_counts = defaultdict(int)\n    for word in text.split():\n        word_counts[word] += 1\n\n    return dict(word_counts)"
+      },
+      {
+        "task_id": "BigCodeBench/926",
+        "condition": "self",
+        "smells_before": 1,
+        "smells_after": 1,
+        "srr": 0.0,
+        "syntax_ok": true,
+        "iterations": 10,
+        "refactored_code": "import pandas as pd\nimport sqlite3\ndef task_func(db_path: str, table_name: str, column_name: str) -> pd.DataFrame:\n    \"\"\"\n    Loads data from an SQLite database into a Pandas DataFrame and performs a string replacement operation on a specified column.\n    Replaces all occurrences of the newline character '\\n' with the HTML line break tag '<br>'.\n    Args:\n        db_path (str): Path to the SQLite database file.\n        table_name (str): Name of the table to load data from.\n        column_name (str): Name of the column to perform string replacement on.\n    Returns:\n        pd.DataFrame: The modified DataFrame with replaced strings in the specified column.\n    \"\"\"\n    conn = sqlite3.connect(db_path)\n    df = pd.read_sql_query(f\"SELECT * FROM {table_name}\", conn)\n    df[column_name] = df[column_name].str.replace(\"\\n\", \"<br>\")\n    return df"
+      },
+      {
+        "task_id": "BigCodeBench/1018",
+        "condition": "self",
+        "smells_before": 3,
+        "smells_after": 0,
+        "srr": 100.0,
+        "syntax_ok": true,
+        "iterations": 1,
+        "refactored_code": "from bs4 import BeautifulSoup\nimport requests\ndef task_func(url, from_encoding=\"cp1251\", use_lxml=False):\n    if not url:\n        return None\n    try:\n        response = requests.get(url)\n        if response.status_code == 200:\n            html = response.content.decode(from_encoding)\n            if use_lxml:\n                return BeautifulSoup(html, \"lxml\")\n            else:\n                return BeautifulSoup(html, \"html.parser\")\n        else:\n            raise ValueError(\"Invalid response status code\")\n    except (requests.exceptions.RequestException, UnicodeDecodeError) as e:\n        print(f\"Exception occurred: {e}\")\n        return None"
+      },
+      {
+        "task_id": "BigCodeBench/1019",
+        "condition": "self",
+        "smells_before": 1,
+        "smells_after": 1,
+        "srr": 0.0,
+        "syntax_ok": true,
+        "iterations": 10,
+        "refactored_code": "from PIL import Image\nimport codecs\nimport pytesseract\nIMAGE_PATH = \"image.png\"\ndef task_func(filename=IMAGE_PATH, from_encoding=\"cp1251\", to_encoding=\"utf8\"):\n    \"\"\"\n    Opens an image file, extracts text using OCR, and converts the text encoding, with a fallback to image comment processing.\n    The function should raise the exception for: ValueError: UnicodeDecodeError or LookupError occurs during conversion ValueError: If incorrect encodings are provided for the text or comment conversion.\n    The function should output with:\n        comment (str): The text extracted from the image or the image comment, converted to the target encoding.\n        If OCR extraction and comment processing both fail, returns an empty string.\n    You should write self-contained code starting with:\n    \"\"\"\n    try:\n        image = Image.open(filename)\n        text = pytesseract.image_to_string(image, lang=\"eng\")\n        comment = image.info.get(\"comment\")\n        if text:\n            return text.encode(to_encoding, \"replace\").decode(from_encoding)\n        elif comment:\n            return comment.encode(to_encoding, \"replace\").decode(from_encoding)\n        else:\n            return \"\"\n    except (ValueError, UnicodeDecodeError, LookupError):\n        raise ValueError(\"UnicodeDecodeError or LookupError occurs during conversion\")\n    except ValueError:\n        raise ValueError(\"Incorrect encodings are provided for the text or comment conversion\")"
+      },
+      {
+        "task_id": "BigCodeBench/1027",
+        "condition": "self",
+        "smells_before": 2,
+        "smells_after": 0,
+        "srr": 100.0,
+        "syntax_ok": true,
+        "iterations": 1,
+        "refactored_code": "import binascii\nimport urllib.parse\ndef task_func(url):\n    \"\"\"\n    Decode a hexadecimal string from the 'q' query parameter of a URL.\n    Args:\n        url (str): The URL to extract the 'q' query parameter from.\n    Returns:\n        str or None: The decoded string if the 'q' parameter exists and is a valid hexadecimal, otherwise None.\n    \"\"\"\n    parsed_url = urllib.parse.urlparse(url)\n    query_params = urllib.parse.parse_qs(parsed_url.query)\n    if 'q' in query_params:\n        try:\n            return binascii.unhexlify(query_params['q'][0]).decode('utf-8')\n        except (binascii.Error, UnicodeDecodeError) as e:\n            print(f\"Exception occurred: {e}\")\n            return None\n    return None"
+      },
+      {
+        "task_id": "BigCodeBench/1028",
+        "condition": "self",
+        "smells_before": 2,
+        "smells_after": 0,
+        "srr": 100.0,
+        "syntax_ok": true,
+        "iterations": 1,
+        "refactored_code": "import subprocess\nimport time\nimport json\nimport platform\nLOGFILE_PATH = \"logfile.log\"\ndef task_func(interval, duration):\n    if interval <= 0 or duration <= 0:\n        raise ValueError(\"Interval and duration must be greater than zero.\")\n    if platform.system() == \"Windows\":\n        command = \"wmic cpu get LoadPercentage\"\n    else:\n        command = \"top -b -n 1 | grep 'Cpu(s)' | awk '{print $2}'\"\n    start_time = time.time()\n    cpu_usage_data = []\n    while time.time() - start_time < duration:\n        output = subprocess.check_output(command, shell=True).decode().strip()\n        cpu_usage = float(output.strip(\"%\"))\n        cpu_usage_data.append({\"timestamp\": time.time(), \"cpu_usage\": cpu_usage})\n        time.sleep(interval)\n    try:\n        with open(LOGFILE_PATH, \"w\") as f:\n            json.dump(cpu_usage_data, f)\n    except IOError as e:\n        print(f\"Error writing to file: {e}\")\n        return None\n    return LOGFILE_PATH"
+      },
+      {
+        "task_id": "BigCodeBench/1123",
+        "condition": "self",
+        "smells_before": 1,
+        "smells_after": 1,
+        "srr": 0.0,
+        "syntax_ok": true,
+        "iterations": 10,
+        "refactored_code": "import re\nimport urllib.parse\nimport ssl\nimport socket\ndef task_func(myString):\n    \"\"\"\n    Extracts all URLs from a string and retrieves the domain and the expiration date of the SSL certificate for each HTTPS URL.\n    Only HTTPS URLs are processed; HTTP URLs are ignored. The function handles SSL errors by ignoring any HTTPS URLs where the SSL certificate cannot be retrieved due to such errors, and these domains are not included in the returned dictionary.\n    The function should output with:\n        dict: A dictionary with domains as keys and SSL certificate expiry dates in UTC format as values.\n        The dictionary includes only those HTTPS URLs for which the SSL certificate was successfully retrieved.\n        Domains with SSL errors are excluded.\n    You should write self-contained code starting with:\n    \"\"\"\n    urls = re.findall(r'https?://\\S+', myString)\n    domains_with_expiry_dates = {}\n    for url in urls:\n        parsed_url = urllib.parse.urlparse(url)\n        if parsed_url.scheme == 'https':\n            try:\n                context = ssl.create_default_context()\n                conn = context.wrap_socket(socket.socket(), server_hostname=parsed_url.hostname)\n                conn.connect((parsed_url.hostname, 443))\n                cert = conn.getpeercert()\n                expiry_date = cert['notAfter']\n                domains_with_expiry_dates[parsed_url.hostname] = expiry_date\n            except (ssl.CertificateError, socket.gaierror):\n                pass  # Ignore HTTPS URLs with SSL errors\n    return domains_with_expiry_dates"
+      }
+    ],
+    "zero_shot": [
+      {
+        "task_id": "BigCodeBench/18",
+        "condition": "zero_shot",
+        "smells_before": 1,
+        "smells_after": 1,
+        "srr": 0.0,
+        "syntax_ok": true,
+        "iterations": 10,
+        "refactored_code": "import subprocess\nimport csv\nimport glob\nimport random\nimport os\ndef task_func(file):\n    if not os.path.isfile(file):\n        return []\n    if not file.endswith('.csv'):\n        return []\n    try:\n        with open(file, 'r') as f:\n            reader = csv.reader(f)\n            lines = list(reader)\n        random.shuffle(lines)\n        split_files = subprocess.run(['split', '-l', str(len(lines) // 2), file], capture_output=True).stdout.decode('utf-8').split('\\n')\n        for split_file in split_files:\n            if split_file:\n                with open(split_file, 'r') as f:\n                    reader = csv.reader(f)\n                    lines = list(reader)\n                random.shuffle(lines)\n                with open(split_file, 'w', newline='') as f:\n                    writer = csv.writer(f)\n                    writer.writerows(lines)\n        return glob.glob('split_*')\n    except Exception:\n        return []"
+      },
+      {
+        "task_id": "BigCodeBench/59",
+        "condition": "zero_shot",
+        "smells_before": 2,
+        "smells_after": 2,
+        "srr": 0.0,
+        "syntax_ok": true,
+        "iterations": 10,
+        "refactored_code": "import wikipedia\nfrom wordcloud import WordCloud\nimport matplotlib.pyplot as plt\ndef task_func(page_title):\n    \"\"\"\n    Create a word cloud from the text of a Wikipedia page.\n    Args:\n        page_title (str): The title of the Wikipedia page.\n    Returns:\n        matplotlib.axes.Axes: The Axes object of the plotted data. Is None if there is no Wikipedia page with the title given as input.\n    \"\"\"\n    try:\n        page = wikipedia.page(page_title)\n        wordcloud = WordCloud().generate(page.content)\n        ax = plt.imshow(wordcloud, interpolation='bilinear')\n        plt.axis(\"off\")\n        return ax\n    except wikipedia.exceptions.PageError:\n        return None"
+      },
+      {
+        "task_id": "BigCodeBench/144",
+        "condition": "zero_shot",
+        "smells_before": 1,
+        "smells_after": 1,
+        "srr": 0.0,
+        "syntax_ok": true,
+        "iterations": 10,
+        "refactored_code": "import ipaddress\nimport requests\ndef task_func(ip_range, timeout):\n    \"\"\"\n    Scans a specified IP address range and sends an HTTP GET request to each IP to verify if it is an active web server.\n    Args:\n        ip_range (str): The IP range in CIDR format (e.g., '192.168.0.0/16').\n        timeout (int): The timeout value in seconds.\n    Returns:\n        list: A list of IP addresses that responded with a status code of 200.\n    Raises:\n        ValueError: If an invalid IP range is provided.\n    \"\"\"\n    try:\n        ip_network = ipaddress.ip_network(ip_range)\n    except ValueError:\n        raise ValueError(\"Invalid IP range provided.\")\n    active_web_servers = []\n    for ip in ip_network.hosts():\n        try:\n            response = requests.get(f\"http://{ip}\", timeout=timeout)\n            if response.status_code == 200:\n                active_web_servers.append(str(ip))\n        except requests.exceptions.RequestException:\n            pass\n    return active_web_servers"
+      },
+      {
+        "task_id": "BigCodeBench/383",
+        "condition": "zero_shot",
+        "smells_before": 1,
+        "smells_after": 1,
+        "srr": 0.0,
+        "syntax_ok": true,
+        "iterations": 10,
+        "refactored_code": "import pandas as pd\nimport seaborn as sns\nfrom collections import Counter\nfrom textblob import TextBlob\nfrom matplotlib import pyplot as plt\ndef task_func(text, n, top_k):\n    \"\"\"\n    Visualize the uppermost K n-grams in a given text string.\n    Args:\n        text (str): The input text string.\n        n (int): The n-gram length.\n        top_k (int): The number of top n-grams to visualize.\n    Returns:\n        None\n    \"\"\"\n    blob = TextBlob(text)\n    ngrams = blob.ngrams(n)\n    freq = Counter(ngrams)\n    df = pd.DataFrame(freq.most_common(top_k), columns=[\"ngram\", \"frequency\"])\n    df[\"ngram\"] = df[\"ngram\"].apply(lambda x: \" \".join(x))\n    sns.barplot(x=\"frequency\", y=\"ngram\", data=df)\n    plt.show()"
+      },
+      {
+        "task_id": "BigCodeBench/420",
+        "condition": "zero_shot",
+        "smells_before": 1,
+        "smells_after": 1,
+        "srr": 0.0,
+        "syntax_ok": true,
+        "iterations": 10,
+        "refactored_code": "import pandas as pd\nfrom sklearn.preprocessing import StandardScaler\ndef task_func(data):\n    numeric_columns = data.select_dtypes(include=['float64', 'int64']).columns\n    for column in numeric_columns:\n        try:\n            data[column] = StandardScaler().fit_transform(data[column].values.reshape(-1, 1))\n        except ValueError:\n            pass\n    return data"
+      },
+      {
+        "task_id": "BigCodeBench/721",
+        "condition": "zero_shot",
+        "smells_before": 1,
+        "smells_after": 0,
+        "srr": 100.0,
+        "syntax_ok": true,
+        "iterations": 1,
+        "refactored_code": "import os\nimport csv\nfrom collections import Counter\ndef task_func(file_path):\n    if not os.path.exists(file_path):\n        return None\n\n    with open(file_path, 'r') as f:\n        reader = csv.reader(f)\n        words = []\n        for row in reader:\n            words.extend(row)\n\n    counter = Counter(words)\n    most_common = counter.most_common(1)\n    return most_common[0] if most_common else None"
+      },
+      {
+        "task_id": "BigCodeBench/775",
+        "condition": "zero_shot",
+        "smells_before": 1,
+        "smells_after": 1,
+        "srr": 0.0,
+        "syntax_ok": true,
+        "iterations": 10,
+        "refactored_code": "from string import ascii_lowercase\nimport re\nfrom collections import Counter\nLETTERS_PATTERN = re.compile(r'^(.*?)-[a-z]$')\ndef task_func(string):\n    match = LETTERS_PATTERN.match(string)\n    if match:\n        prefix, letter = match.groups()\n        counter = Counter(prefix)\n        return dict(counter)\n    else:\n        return {}"
+      },
+      {
+        "task_id": "BigCodeBench/841",
+        "condition": "zero_shot",
+        "smells_before": 1,
+        "smells_after": 1,
+        "srr": 0.0,
+        "syntax_ok": true,
+        "iterations": 10,
+        "refactored_code": "import re\nimport json\nfrom collections import defaultdict\nimport string\ndef task_func(json_string):\n    \"\"\"\n    Process a JSON string containing a \"text\" field: convert to lowercase, remove punctuation, and count word frequency.\n    This function takes a JSON string with a field named \"text\", and returns a dictionary with word counts. It processes the text by converting it to lowercase, removing all punctuation and non-alphanumeric characters (except spaces), and then counting the frequency of each word.\n    Note that: Punctuation is removed using the `string.punctuation` constant. The function is case-insensitive and treats words like \"Hello\" and \"hello\" as the same word. If the JSON string is malformed or the \"text\" field is missing, an empty dictionary is returned.\n    \"\"\"\n    try:\n        data = json.loads(json_string)\n    except json.JSONDecodeError:\n        return {}\n    if \"text\" not in data:\n        return {}\n    text = data[\"text\"]\n    text = text.lower()\n    text = re.sub(r\"[^\\w\\s]\", \"\", text)\n    word_counts = defaultdict(int)\n    for word in text.split():\n        word_counts[word] += 1\n\n    return dict(word_counts)"
+      },
+      {
+        "task_id": "BigCodeBench/926",
+        "condition": "zero_shot",
+        "smells_before": 1,
+        "smells_after": 0,
+        "srr": 100.0,
+        "syntax_ok": true,
+        "iterations": 1,
+        "refactored_code": "import pandas as pd\nimport sqlite3\ndef task_func(db_path: str, table_name: str, column_name: str) -> pd.DataFrame:\n    conn = sqlite3.connect(db_path)\n    df = pd.read_sql_query(f\"SELECT * FROM {table_name}\", conn)\n    df[column_name] = df[column_name].str.replace(\"\\n\", \"<br>\")\n    return df"
+      },
+      {
+        "task_id": "BigCodeBench/1018",
+        "condition": "zero_shot",
+        "smells_before": 3,
+        "smells_after": 3,
+        "srr": 0.0,
+        "syntax_ok": true,
+        "iterations": 10,
+        "refactored_code": "from bs4 import BeautifulSoup\nimport requests\ndef task_func(url, from_encoding=\"cp1251\", use_lxml=False):\n    if not url:\n        return None\n    try:\n        response = requests.get(url)\n        if response.status_code == 200:\n            html = response.content.decode(from_encoding)\n            if use_lxml:\n                return BeautifulSoup(html, \"lxml\")\n            else:\n                return BeautifulSoup(html, \"html.parser\")\n        else:\n            return None\n    except (requests.exceptions.RequestException, UnicodeDecodeError):\n        return None"
+      },
+      {
+        "task_id": "BigCodeBench/1019",
+        "condition": "zero_shot",
+        "smells_before": 1,
+        "smells_after": 1,
+        "srr": 0.0,
+        "syntax_ok": true,
+        "iterations": 10,
+        "refactored_code": "from PIL import Image\nimport codecs\nimport pytesseract\nIMAGE_PATH = \"image.png\"\ndef task_func(filename=IMAGE_PATH, from_encoding=\"cp1251\", to_encoding=\"utf8\"):\n    \"\"\"\n    Opens an image file, extracts text using OCR, and converts the text encoding, with a fallback to image comment processing.\n    The function should raise the exception for: ValueError: UnicodeDecodeError or LookupError occurs during conversion ValueError: If incorrect encodings are provided for the text or comment conversion.\n    The function should output with:\n        comment (str): The text extracted from the image or the image comment, converted to the target encoding.\n        If OCR extraction and comment processing both fail, returns an empty string.\n    You should write self-contained code starting with:\n    \"\"\"\n    try:\n        image = Image.open(filename)\n        text = pytesseract.image_to_string(image, lang=\"eng\")\n        comment = image.info.get(\"comment\")\n        if text:\n            return text.encode(to_encoding, \"replace\").decode(from_encoding)\n        elif comment:\n            return comment.encode(to_encoding, \"replace\").decode(from_encoding)\n        else:\n            return \"\"\n    except (ValueError, UnicodeDecodeError, LookupError):\n        raise ValueError(\"UnicodeDecodeError or LookupError occurs during conversion\")\n    except ValueError:\n        raise ValueError(\"Incorrect encodings are provided for the text or comment conversion\")"
+      },
+      {
+        "task_id": "BigCodeBench/1027",
+        "condition": "zero_shot",
+        "smells_before": 2,
+        "smells_after": 1,
+        "srr": 50.0,
+        "syntax_ok": true,
+        "iterations": 10,
+        "refactored_code": "import urllib.parse\ndef task_func(url):\n    parsed_url = urllib.parse.urlparse(url)\n    query_params = urllib.parse.parse_qs(parsed_url.query)\n    if 'q' in query_params:\n        try:\n            return bytes.fromhex(query_params['q'][0]).decode('utf-8')\n        except (ValueError, UnicodeDecodeError):\n            pass # Handle the exception appropriately\n    return None"
+      },
+      {
+        "task_id": "BigCodeBench/1028",
+        "condition": "zero_shot",
+        "smells_before": 2,
+        "smells_after": 2,
+        "srr": 0.0,
+        "syntax_ok": true,
+        "iterations": 10,
+        "refactored_code": "import subprocess\nimport time\nimport json\nimport platform\nLOGFILE_PATH = \"logfile.log\"\ndef task_func(interval, duration):\n    if interval <= 0 or duration <= 0:\n        raise ValueError(\"Interval and duration must be greater than zero.\")\n    if platform.system() == \"Windows\":\n        command = \"wmic cpu get LoadPercentage\"\n    else:\n        command = \"top -b -n 1 | grep 'Cpu(s)' | awk '{print $2}'\"\n    start_time = time.time()\n    cpu_usage_data = []\n    while time.time() - start_time < duration:\n        output = subprocess.check_output(command, shell=True).decode().strip()\n        cpu_usage = float(output.strip(\"%\"))\n        cpu_usage_data.append({\"timestamp\": time.time(), \"cpu_usage\": cpu_usage})\n        time.sleep(interval)\n    try:\n        with open(LOGFILE_PATH, \"w\") as f:\n            json.dump(cpu_usage_data, f)\n    except IOError:\n        return None\n    return LOGFILE_PATH"
+      },
+      {
+        "task_id": "BigCodeBench/1123",
+        "condition": "zero_shot",
+        "smells_before": 1,
+        "smells_after": 1,
+        "srr": 0.0,
+        "syntax_ok": true,
+        "iterations": 10,
+        "refactored_code": "import re\nimport urllib.parse\nimport ssl\nimport socket\ndef task_func(myString):\n    \"\"\"\n    Extracts all URLs from a string and retrieves the domain and the expiration date of the SSL certificate for each HTTPS URL.\n    Only HTTPS URLs are processed; HTTP URLs are ignored. The function handles SSL errors by ignoring any HTTPS URLs where the SSL certificate cannot be retrieved due to such errors, and these domains are not included in the returned dictionary.\n    The function should output with:\n        dict: A dictionary with domains as keys and SSL certificate expiry dates in UTC format as values.\n        The dictionary includes only those HTTPS URLs for which the SSL certificate was successfully retrieved.\n        Domains with SSL errors are excluded.\n    You should write self-contained code starting with:\n    \"\"\"\n    urls = re.findall(r'https?://\\S+', myString)\n    domains_with_expiry_dates = {}\n    for url in urls:\n        parsed_url = urllib.parse.urlparse(url)\n        if parsed_url.scheme == 'https':\n            try:\n                context = ssl.create_default_context()\n                conn = context.wrap_socket(socket.socket(), server_hostname=parsed_url.hostname)\n                conn.connect((parsed_url.hostname, 443))\n                cert = conn.getpeercert()\n                expiry_date = cert['notAfter']\n                domains_with_expiry_dates[parsed_url.hostname] = expiry_date\n            except (ssl.CertificateError, socket.gaierror):\n                pass  # Ignore HTTPS URLs with SSL errors\n    return domains_with_expiry_dates"
+      }
+    ]
+  },
+  "summary": {
+    "self": {
+      "n": 14,
+      "median_srr": 100.0,
+      "mean_srr": 71.43,
+      "pct_improved": 71.4,
+      "pct_fully_removed": 71.4,
+      "mean_syntax_ok": 100,
+      "mean_itc": 3.57
+    },
+    "zero_shot": {
+      "n": 14,
+      "median_srr": 0.0,
+      "mean_srr": 17.86,
+      "pct_improved": 21.4,
+      "pct_fully_removed": 14.3,
+      "mean_syntax_ok": 100,
+      "mean_itc": 8.71
+    }
+  }
+}

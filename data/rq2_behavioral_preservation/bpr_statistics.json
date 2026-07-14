@@ -1,0 +1,83 @@
+{
+  "models": {
+    "CodeLlama-13B": {
+      "n_original_pass": 64,
+      "n_preserved": 63,
+      "bpr": 0.9844,
+      "ci_lower": 0.9167,
+      "ci_upper": 0.9972
+    },
+    "DeepSeekCoder-6.7B": {
+      "n_original_pass": 58,
+      "n_preserved": 51,
+      "bpr": 0.8793,
+      "ci_lower": 0.7712,
+      "ci_upper": 0.9403
+    },
+    "StarCoder2-15B": {
+      "n_original_pass": 3,
+      "n_preserved": 2,
+      "bpr": 0.6667,
+      "ci_lower": 0.2077,
+      "ci_upper": 0.9385,
+      "note": "n=3 is too small for meaningful statistical comparison"
+    },
+    "Qwen2.5-Coder-14B": {
+      "n_original_pass": 200,
+      "n_preserved": 196,
+      "bpr": 0.98,
+      "ci_lower": 0.9497,
+      "ci_upper": 0.9922
+    }
+  },
+  "pairwise_tests": [
+    {
+      "model_a": "CodeLlama-13B",
+      "model_b": "DeepSeekCoder-6.7B",
+      "contingency_table": [
+        [
+          63,
+          1
+        ],
+        [
+          51,
+          7
+        ]
+      ],
+      "fisher_p": 0.026572,
+      "odds_ratio": 8.6471
+    },
+    {
+      "model_a": "CodeLlama-13B",
+      "model_b": "Qwen2.5-Coder-14B",
+      "contingency_table": [
+        [
+          63,
+          1
+        ],
+        [
+          196,
+          4
+        ]
+      ],
+      "fisher_p": 1.0,
+      "odds_ratio": 1.2857
+    },
+    {
+      "model_a": "DeepSeekCoder-6.7B",
+      "model_b": "Qwen2.5-Coder-14B",
+      "contingency_table": [
+        [
+          51,
+          7
+        ],
+        [
+          196,
+          4
+        ]
+      ],
+      "fisher_p": 0.003261,
+      "odds_ratio": 0.1487
+    }
+  ]
+}
